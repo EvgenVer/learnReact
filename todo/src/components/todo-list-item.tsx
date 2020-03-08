@@ -1,8 +1,14 @@
 import React from 'react';
 
-const TodoListItem = (): JSX.Element => {
-  return <span>Drink Coffee</span>;
-};
+export interface ListItemProps {
+  label: string
+  important?: boolean
+}
 
-export default TodoListItem;
+export const TodoListItem = ({ label, important = false }: ListItemProps): JSX.Element => {
+  const style = {
+    color: important ? 'tomato' : 'black'
+  };
+  return <span style={style}>{ label }</span>;
+};
 
